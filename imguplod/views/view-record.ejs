@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Record</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<div>
+    <h1>User Details</h1>
+<div class="record-card"></div>
+    <p><strong>No:</strong> <%= user.no %></p>
+
+    <p><strong>Name:</strong> <%= user.name %></p>
+
+    <p><strong>Date:</strong> <%= user.date ? new Date(user.date).toISOString().split('T')[0] : '' %></p>
+
+    <p>
+        <strong>Hobby:</strong>
+        <%= Array.isArray(user.hobby) ? user.hobby.join(', ') : user.hobby %>
+    </p>
+
+    <p><strong>Gender:</strong> <%= user.gender %></p>
+</div>
+    <a href="/view-user">Back</a>
+</body>
+</html>

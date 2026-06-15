@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit student</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Edit student</h1>
+    <form action="/update-student/<%= student.id %>" method="POST">
+        <label for="name">name</label>
+        <input type="text" name="name" value="<%= student.name %>" required>
+        <br/>
+
+        <label for="no">no</label>
+        <input type="number" name="no" value="<%= student.rno %>">
+        <br/>
+
+        <label for="date">Date</label>
+        <input type="date" name="date" value="<%= student.date ? student.date.toISOString().slice(0, 10) : '' %>">
+        <br/>
+
+        <label for="hobby">hobby</label>
+        <input type="checkbox" name="hobby" value="cricket" <%= [].concat(student.hobby || []).includes('cricket') ? 'checked' : '' %>>cricket
+        <input type="checkbox" name="hobby" value="reading" <%= [].concat(student.hobby || []).includes('reading') ? 'checked' : '' %>>reading
+        <input type="checkbox" name="hobby" value="hockey" <%= [].concat(student.hobby || []).includes('hockey') ? 'checked' : '' %>>hockey
+        <br/>
+
+        <label for="gender">gender</label>
+        <input type="radio" name="gender" value="male" <%= student.gender === 'male' ? 'checked' : '' %>>male
+        <input type="radio" name="gender" value="female" <%= student.gender === 'female' ? 'checked' : '' %>>female
+        <br/>
+
+        <button type="submit">Update</button>
+        <a href="/view-student">Cancel</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View student</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>View student</h1>
+    <a href="/">Add student</a>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Rno</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Idcard</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach((student) => { %>
+                <tr>
+                    <td><%= student.rno %></td>
+                    <td><%= student.name %></td>
+                    <td><img src="./uploads/<%=student.picture %>" width="100"/></td>
+                 <td>
+    <a class="btn btn-edit" href="/edit-student/<%= student.id %>">Edit</a>
+
+    <a class="btn btn-delete"
+       href="/delete-student/<%= student.id %>"
+       onclick="return confirm('Are you sure?')">
+       Delete
+    </a>
+
+    <a class="btn btn-view"
+       href="/view-record/<%= student.id %>">
+       View
+    </a>
+</td>
+                </tr>
+            <% }) %>
+
+            <% if (students.length === 0) { %>
+                <tr>
+                    <td colspan="6">No student found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

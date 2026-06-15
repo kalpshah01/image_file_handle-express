@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+</head>
+<body>
+    <h1>Student Registeration form</h1>
+    <form method="post" action="/add-student" enctype="multipart/form-data">
+        <label>Rollno</label>
+        <input type="number" name="rno" />
+        <br/>
+        <label>Name</label>
+        <input type="text" name="name" />
+        <br/>
+        <label>Picture</label>
+        <input type="file" name="profilepic"/>
+        <br/>
+          <button type="submit">ADD</button>
+        <a href="/view-student">View Student</a>
+    </form>
+</body>
+</html>
